@@ -7,13 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="userpage.css">
-    <link rel="stylesheet" href="news.css">
+    <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="navbar-style.css">
+
 </head>
 <body>
-  <script src="userpage.js"></script>
-  <script src="news.js"></script>
+  <script src="homepage.js"></script>
 
   <div class="news-container">
     <div class="news-heading">News</div>
@@ -41,8 +40,8 @@
     </div>
   </div>
 
-  <header>
-    <div id="brand"><a href="homepage.html">Mahallah Uthman</a></div>
+<header>
+    <div id="brand"><a href="home">Mahallah Uthman</a></div>
     <nav>
       <ul>
         <li><a href="userpage.html">Home</a></li>
@@ -50,8 +49,7 @@
         <li><a href="ProjectFacility">Facilities</a></li>
         <li><a href="ProjectGallery.html" >Gallery</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="homepage.html">Logout</a></li>
-        <li><a href="ProjectProfile.html">Profile</a></li>
+        <li><a href="login.html">Login/Sign Up</a></li>
       </ul>
     </nav>
     <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
@@ -64,13 +62,24 @@
         <li><a href="ProjectFacility">Facilities</a></li>
         <li><a href="ProjectGallery.html" >Gallery</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="homepage.html">Logout</a></li>
-        <li><a href="ProjectProfile.html">Profile</a></li>
+        <li><a href="login.html">Login/Sign Up</a></li>
       </ul>
     </div>
   </header>
 
 
+  
+<script>
+    function toggleMobileMenu(menu) {
+menu.classList.toggle('open');
+}
+</script>
+    <!-- 
+    <section id="home">
+      <img src="home.png" alt="Large Image">
+      
+  </section>
+-->
 <section class="container">
 	<div class="slider-wrapper">
 		<div class="slider">
@@ -90,7 +99,16 @@
 		</div>
 	</div>
 </section>
-  
+<a href="register.html">
+  <div class="container1">
+    
+    <h2 class="reg">Register Now</h2>
+    <img class="button1" src="button box.png" alt="">
+  </div>
+</a>
+  <div class="container2">
+    <h4>Discover more 🡣</h4>
+  </div>
 
 <div class="gallery-container">
   <div class="news-image">
@@ -116,6 +134,7 @@
 </div>
 
 
+
 <div class="mapp">
   <h1>Where We Located</h1>
   <div class="map-caption">
@@ -123,10 +142,14 @@
   </div>
 
   <div class="map">
+    
 
     <div class="map-img">
+      <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.3981291736254!2d101.73472611690867!3d3.2508228531541197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc38e81d14a2fb%3A0xe40e8d38b4fbe2f5!2sMahallah%20Uthman!5e0!3m2!1sen!2smy!4v1705233816902!5m2!1sen!2smy" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
       <img src="uthmanmap.png" alt="news2">
+    </a>
     </div>
+    
 
     <div class="description">
       <p>2 Minutes walk to Saidina Hamza Stadium,
