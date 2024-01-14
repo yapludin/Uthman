@@ -1,0 +1,101 @@
+
+body{
+    background-color:#F4F3EA;
+    font-family: "Poppins";
+    margin-left: 40px;
+   }
+
+   nav {
+    margin-top: 10px;
+    margin-right: 20px;
+    }
+    
+    nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: right;
+    }
+    
+    nav li {
+    margin: 0 15px;
+    }
+    nav a{
+        text-decoration: none;
+
+    }
+    nav a:hover{
+        color: #D3AC2A;
+    }
+    label{
+        margin: 30px 20px 10px 20px;
+        padding-top: 20px;
+    }
+    span{
+        margin-left: 20px;
+        font-size: smaller;
+    }
+    select, .carddetails {
+        width: 90%;
+        padding: 15px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        font-family: 'Poppins';
+        margin: 0px 20px 20px 20px;
+    }
+.onlineBanking{
+    background-color: white;
+    width: 50%;
+    height: 50%;
+    border-radius: 15px 15px 0px 0px;
+    padding: 10px 0px 10px 0px;
+}
+.card{
+    background-color: white;
+    width: 50%;
+    height: 50%;
+    border-radius: 0px 0px 15px 15px ;
+    padding: 10px 0px 10px 0px;
+}
+button {
+    background-color: #D3AC2A;
+    width: 10%;
+    margin-top: 40px;
+    border-radius: 10px;
+    padding: 15px;
+    font-family: 'Poppins';
+    cursor: pointer;
+}
+.container-receipt{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+/* sm */
+@media (max-width: 640px) {
+    .onlineBanking{
+        background-color: white;
+        width: 90%;
+        height: 50%;
+        border-radius: 15px 15px 0px 0px;
+        padding: 10px 0px 10px 0px;
+    }
+    .card{
+        background-color: white;
+        width: 90%;
+        height: 50%;
+        border-radius: 0px 0px 15px 15px ;
+        padding: 10px 0px 10px 0px;
+    }
+    button {
+        background-color: #D3AC2A;
+        width: 30%;
+        margin-top: 40px;
+        border-radius: 10px;
+        padding: 15px;
+        font-family: 'Poppins';
+        cursor: pointer;
+    }
+}
+
+
+

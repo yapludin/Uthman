@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>choose block page 3</title>
+    <link rel="stylesheet" href="payment.css">
+    <link rel="stylesheet" href="navbar-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="brand"><a href="home">Mahallah Uthman</a></div>
+        <nav>
+          <ul>
+            <li><a href="userpage.html">Home</a></li>
+            <li><a href="chooseblock1.html">Book</a></li>
+            <li><a href="ProjectFacility.html">Facilities</a></li>
+            <li><a href="ProjectGallery.html" >Gallery</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="homepage.html">Logout</a></li>
+            <li><a href="ProjectProfile.html">Profile</a></li>
+          </ul>
+        </nav>
+        <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+          <ul class="mobile-menu">
+            <li><a href="userpage.html">Home</a></li>
+            <li><a href="chooseblock1.html">Book</a></li>
+            <li><a href="ProjectFacility.html">Facilities</a></li>
+            <li><a href="ProjectGallery.html" >Gallery</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="homepage.html">Logout</a></li>
+            <li><a href="ProjectProfile.html">Profile</a></li>
+          </ul>
+        </div>
+      </header>
+    <main>
+        <h2>Choose Payment Method</h2>
+        <div class="onlineBanking">
+            <input type="radio" id="online" name="paymentMethod" value="online" style="justify-content: left;" required><label for="onlineBanking">Online Banking</label>
+            <select id="preferredBank">
+              <option value="">[Select]</option>
+              <option value="Affin Bank Berhad">AFFIN BANK BERHAD</option>
+              <option value="Agrobank">AGROBANK</option>
+              <option value="Alliance Bank Malaysia Berhad">ALLIANCE BANK MALAYSIA BERHAD</option>
+              <option value="AMBANK BERHAD">AMBANK BERHAD</option>
+              <option value="BANK ISLAM MALAYSIA BERHAD">BANK ISLAM MALAYSIA BERHAD</option>
+              <option value="BANK KERJASAMA RAKYAT MALAYSIA BERHAD">BANK KERJASAMA RAKYAT MALAYSIA BERHAD</option>
+              <option value="BANK MUAMALAT MALAYSIA BERHAD">BANK MUAMALAT MALAYSIA BERHAD</option>
+              <option value="BANK SIMPANAN NASIONAL BERHAD">BANK SIMPANAN NASIONAL BERHAD</option>
+              <option value="CIMB BANK BERHAD">CIMB BANK BERHAD</option>
+              <option value="HSBC BANK MALAYSIA BERHAD ">HSBC BANK MALAYSIA BERHAD </option>
+              <option value="HONG LEONG BANK BERHAD">HONG LEONG BANK BERHAD</option>
+              <option value="MBSB BANK BERHAD">MBSB BANK BERHAD</option>
+              <option value="MAYBANK BERHAD">MAYBANK BERHAD</option>
+              <option value="OCBC BANK (MALAYSIA) BERHAD">OCBC BANK (MALAYSIA) BERHAD</option>
+              <option value="PUBLIC BANK BERHAD">PUBLIC BANK BERHAD</option>
+              <option value="RHB BANK BERHAD">RHB BANK BERHAD</option>
+              <option value="Standard Charted Bank Malaysia">STANDARD CHARTED BANK MALAYSIA</option>            
+          </select>  
+        </div>
+        <p></p>
+        <div class="card">
+            <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" required><label for="card">Credit/Debit Card</label>
+            <p></p>
+            <span>Card Number</span>
+            <input type="text" class="carddetails" placeholder="0000 0000 0000 0000" required>
+            <span>Expiry Date</span>
+            <input type="text" class="carddetails" placeholder="MM/YY" required>
+            <span>CVC/CVV</span>
+            <input type="text" class="carddetails" placeholder="000" required>
+        </div>
+        <button type="button" onclick="processPayment()">Proceed</button>
+    </main>
+    
+    
+</body>
+<script>
+    function processPayment() {
+            const selectedOption = document.querySelector('input[name="paymentMethod"]:checked');
+
+            if (selectedOption) {
+                if (selectedOption.value === 'online') {
+                    alert('Redirecting to FPX payment page...');
+                    window.location.href = 'FPXpayment.html';
+                } else if (selectedOption.value === 'creditCard') {
+                    alert('Processing your payment...');
+                    window.location.href = 'mahallahreceipt.html'; 
+                }
+            } else {
+                alert('Please choose a payment option.');
+            }
+        }
+        function toggleMobileMenu(menu) {
+    menu.classList.toggle('open');
+}
+</script>
+
+</html>

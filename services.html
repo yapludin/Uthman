@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>services</title>
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="navbar-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="brand"><a href="home">Mahallah Uthman</a></div>
+        <nav>
+          <ul>
+            <li><a href="userpage.html">Home</a></li>
+            <li><a href="chooseblock1.html">Book</a></li>
+            <li><a href="ProjectFacility.html">Facilities</a></li>
+            <li><a href="ProjectGallery.html" >Gallery</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="homepage.html">Logout</a></li>
+            <li><a href="ProjectProfile.html">Profile</a></li>
+          </ul>
+        </nav>
+        <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+          <ul class="mobile-menu">
+            <li><a href="userpage.html">Home</a></li>
+            <li><a href="chooseblock1.html">Book</a></li>
+            <li><a href="ProjectFacility.html">Facilities</a></li>
+            <li><a href="ProjectGallery.html" >Gallery</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="homepage.html">Logout</a></li>
+            <li><a href="ProjectProfile.html">Profile</a></li>
+          </ul>
+        </div>
+      </header>
+    <main>
+        <h1>Services</h1>
+        <span>We provide variety of amenities, for students to have the best experience with us !</span>
+        <div class="container-services">
+            <div class="cleaning" >
+                <img src="trash-bin.png" alt="" onclick="openPopup">
+                <label>Cleaning Services</label>
+                <span for="">Let us handle the mess while you enjoy a clean environment. Book your cleaning today!</span>
+            </div>
+            <div class="cleaning">
+                <img src="like.png" alt="">
+                <label>Counseling</label>
+                <span for="">Our counseling service is here to listen, understand, and guide you on your journey to well-being.</span>
+            </div>
+            <div class="cleaning">
+                <img src="car.png" alt="">
+                <label>Rental</label>
+                <span for="">Our rental vehicle service offers a wide range of vehicles to meet your travel needs.</span>
+            </div>
+            <div class="cleaning">
+                <img src="report.png" alt="">
+                <label>Report</label>
+                <span for="">Don't hesitate to report any issues, and we'll ensure everything is in perfect working order.</span>
+            </div>
+            <div class="cleaning">
+                <img src="phone-call.png" alt="">
+                <label>Contacts</label>
+                <span for=""> If you have questions, need assistance, or just want to get in touch, here are our contact details.</span>
+            </div>
+            <div class="cleaning">
+                <img src="pharmacy.png" alt="">
+                <label>Healthcare</label>
+                <span for="">Your health matters, and so do you.</span>
+            </div>
+            
+        </div>
+
+        <button class="open" onclick="openServicesPopup()">Book Service</button>
+
+        <div id="servicesPopup" class="popup-container">
+            <div class="popup-content">
+                <span class="close-popup" onclick="closeServicesPopup()">&times;</span>
+                <h2>Mahallah Uthman Services</h2>
+                <form id="servicesForm" enctype="multipart/form-data">
+                    <label for="serviceType">Select a Service:</label>
+                    <select id="serviceType" name="serviceType">
+                        <option value="cleaning">Cleaning</option>
+                        <option value="counseling">Counseling</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="carRental">Car Rental</option>
+                        <option value="report">Report</option>
+                        <option value="contacts">Contacts</option>
+                    </select>
+                
+                    <label for="userName">Your Name:</label>
+                    <input type="text" id="userName" name="userName" required placeholder="Your Full Name">
+                
+                    <label for="userEmail">Your Email:</label>
+                    <input type="email" id="userEmail" name="userEmail" required placeholder="Email">
+                    
+                    <label for="userDescription">Description:</label>
+                    <input type="text" id="userDescription" name="userDescription" style="height: 50px;" placeholder="Decribe Your Issue">
+                
+                    <!-- Additional input for file upload -->
+                    <label for="userFile">Upload Document or Image (for Report):</label>
+                    <input type="file" id="userFile" name="userFile">
+
+                    <p></p>
+                
+                    <button type="submit">Submit</button>
+                    <button type="button" style="background-color: brown;" onclick="closeServicesPopup()">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script>
+    function toggleMobileMenu(menu) {
+    menu.classList.toggle('open');
+}
+    function openServicesPopup() {
+    document.getElementById('servicesPopup').style.display = 'flex';
+}
+
+function closeServicesPopup() {
+    document.getElementById('servicesPopup').style.display = 'none';
+}
+
+document.getElementById('servicesForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Add your form submission logic here
+    const serviceType = document.getElementById('serviceType').value;
+    const userName = document.getElementById('userName').value;
+    const userEmail = document.getElementById('userEmail').value;
+    const userFile = document.getElementById('userFile').files[0];
+
+    // Display or process the collected information as needed
+    alert(`Service: ${serviceType}\nName: ${userName}\nEmail: ${userEmail}`);
+
+    if (userFile) {
+        alert(`Uploaded File: ${userFile.name}`);
+        alert('Your reservation has been submitted successfully! Please wait for further notification.');
+        // You can perform additional actions with the uploaded file, such as sending it to a server
+    }
+    else{
+        alert('No file is submitted.');
+        alert('Your reservation has been submitted successfully! Please wait for further notification.');
+    }
+    
+
+    // Close the popup after form submission
+    closeServicesPopup();
+});
+
+
+</script>
+
+</html>

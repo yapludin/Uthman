@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mahallahreceipt</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="navbar-style.css">
+
+    <style>
+        body{
+    background-color:#F4F3EA;
+    font-family: "Poppins";
+    margin-left: 40px;
+   }
+
+   nav {
+    margin-top: 10px;
+    margin-right: 20px;
+    }
+    
+    nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: right;
+    }
+    
+    nav li {
+    margin: 0 15px;
+    }
+    nav a{
+        text-decoration: none;
+
+    }
+    nav a:hover{
+        color: #D3AC2A;
+    }
+        .container-receipt{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+        }
+        .roominfo{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        table{
+            background-color: white;
+            width: 100%;
+            border: #D3AC2A;
+            margin-right: 10px;
+        }
+        th{
+            border-bottom: black;
+        }
+        tr:hover {background-color: gray;}
+
+        /* sm */
+@media (max-width: 640px) {
+    table{
+            background-color: white;
+            width: 60%;
+            border: #D3AC2A;
+            margin-right: 10px;
+        }
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div id="brand"><a href="home">Mahallah Uthman</a></div>
+        <nav>
+          <ul>
+            <li><a href="userpage.html">Home</a></li>
+            <li><a href="chooseblock1.html">Book</a></li>
+            <li><a href="ProjectFacility.html">Facilities</a></li>
+            <li><a href="ProjectGallery.html" >Gallery</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="homepage.html">Logout</a></li>
+            <li><a href="ProjectProfile.html">Profile</a></li>
+          </ul>
+        </nav>
+        <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+          <ul class="mobile-menu">
+            <li><a href="userpage.html">Home</a></li>
+            <li><a href="chooseblock1.html">Book</a></li>
+            <li><a href="ProjectFacility.html">Facilities</a></li>
+            <li><a href="ProjectGallery.html" >Gallery</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="homepage.html">Logout</a></li>
+            <li><a href="ProjectProfile.html">Profile</a></li>
+          </ul>
+        </div>
+      </header>
+    <div class="container-receipt">
+        <div class="message" style="text-align: center;">
+            <span style="font-size: 80px;">THANK YOU!</span>
+            <br>
+            <span style="font-size: 30px;">PAYMENT DONE SUCCESSFULLY</span>
+            <H4>Thank you for choosing Mahallah Uthman.</H4>
+        </div>
+        <h4>Room Information</h4>
+        <div class="roominfo">
+            
+            <div class="table1">
+                <main>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Room Type</th>
+                                <th>Room Number</th>
+                                <th>Compartment</th>
+                            </tr>
+                        </thead>
+                        <tbody id="roomDetailsBody">
+                            <!-- Room details will be dynamically populated here -->
+                        </tbody>
+                    </table>
+                </main>
+            </div>
+            <div class="table2">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Checkin Date</th>
+                            <th>Checkout Date</th>
+                            <th>Sem/Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       <tr>
+                        <td>1/1/2025</td>
+                        <td>-</td>
+                        <td>Sem 1 24/25</td>
+                       </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+    <script>
+        function toggleMobileMenu(menu) {
+    menu.classList.toggle('open');
+}
+         // Retrieve room details from localStorage
+         const roomDetails = JSON.parse(localStorage.getItem('roomDetails')) || [];
+
+// Display room details in the table
+const roomDetailsBody = document.getElementById('roomDetailsBody');
+roomDetails.forEach(room => {
+    const newRow = roomDetailsBody.insertRow();
+    const roomTypeCell = newRow.insertCell(0);
+    const roomNumberCell = newRow.insertCell(1);
+    const compartmentCell = newRow.insertCell(2);
+
+    roomTypeCell.textContent = room.roomType;
+    roomNumberCell.textContent = room.roomNumber;
+    compartmentCell.textContent = room.compartment;
+});
+// Clear room details from localStorage when the page is closed or refreshed
+window.addEventListener('beforeunload', function () {
+    localStorage.removeItem('roomDetails');
+});
+    </script>
+</body>
+</html>

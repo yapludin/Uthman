@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>choose block page 1</title>
+    <link rel="stylesheet" href="style-main.css">
+    <link rel="stylesheet" href="navbar-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="brand"><a href="home">Mahallah Uthman</a></div>
+        <nav>
+          <ul>
+            <li><a href="userpage.html">Home</a></li>
+            <li><a href="chooseblock1.html">Book</a></li>
+            <li><a href="ProjectFacility.html">Facilities</a></li>
+            <li><a href="ProjectGallery.html" >Gallery</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="homepage.html">Logout</a></li>
+            <li><a href="ProjectProfile.html">Profile</a></li>
+          </ul>
+        </nav>
+        <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+          <ul class="mobile-menu">
+            <li><a href="userpage.html">Home</a></li>
+            <li><a href="chooseblock1.html">Book</a></li>
+            <li><a href="ProjectFacility.html">Facilities</a></li>
+            <li><a href="ProjectGallery.html" >Gallery</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="homepage.html">Logout</a></li>
+            <li><a href="ProjectProfile.html">Profile</a></li>
+          </ul>
+        </div>
+      </header>
+      
+    <main>
+        <h1 class="chooseBlock">Choose Your Desired Block</h1>
+        <span class="description" style="padding-left: 40px;">Hover through map and pick a block</span>
+        <div class="container-blocks">
+            <div class="gambaruthman">
+                <img src="MAPUTHMAN.png" alt="">
+            </div>
+            <div class="list">
+                <ol class="uthmanblocks">
+                    <li><a href="chooseblock2.html?block=A">Block A</a></li>
+                    <li><a href="chooseblock2.html?block=B">Block B</a></li>
+                    <li><a href="chooseblock2.html?block=C">Block C</a></li>
+                    <li><a href="chooseblock2.html?block=D">Block D</a></li>
+                    <li><a href="chooseblock2.html?block=E">Block E</a></li>
+                    <li><a href="chooseblock2.html?block=F">Block F</a></li>
+                    <li><a href="chooseblock2.html?block=G">Block G</a></li>
+                    <li><a href="chooseblock2.html?block=H">Block H</a></li>
+                </ol>
+            </div>
+        </div>
+    </main>
+    <script>
+        function toggleMobileMenu(menu) {
+    menu.classList.toggle('open');
+}
+    </script>
+</body>
+</html>
