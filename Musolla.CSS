@@ -1,0 +1,81 @@
+body{
+    margin: 0;
+    padding: 0; 
+    font-family: 'Poppins', sans-serif;
+    background-color: #F4F3EA;
+    background-size: cover;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1.5%;
+    box-sizing: border-box;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+}
+
+.col{
+    display: inline-block;
+}
+
+h1{
+    color: #333D51;
+    font-size: 50px;
+}
+
+p{
+    line-height: 2px;
+}
+
+.card{
+    width: 100%;
+    height: 300px;
+    max-height: 100%;
+    max-width: 400px;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    margin: 10px 15px;
+    background-position: center;
+    background-size: cover;
+    -webkit-text-stroke: 1px #ffffff;
+    text-shadow: 10px 9px 12px #000000;
+    font-size: 20px;
+    box-shadow: 5px 9px 12px #000000;
+}
+
+.card1{
+    background-image: url(MusollaGallery.jpg);
+    height: 400px;
+    width: 400px;
+}
+
+.card2{
+    background-image: url(MusollaGallery2.jpg);
+    height: 400px;
+    width: 400px;
+}
+
+.card3{
+    background-image: url(MusollaGallery3.jpg);
+    height: 400px;
+    width: 400px;
+}
+
+@media only screen and (max-width: 768px) {
+    .col {
+        flex-basis: calc(50% - 30px);
+    }
+
+    .container {
+        height: auto;
+    }
+
+}

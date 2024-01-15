@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ProjectProfile.css">
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;600&display=swap' rel='stylesheet'>
+    <link rel="stylesheet" href="navbar-style.css">
+
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div id="brand"><a href="home">Mahallah Uthman</a></div>
+            <nav>
+              <ul>
+                <li><a href="userpage.html">Home</a></li>
+                <li><a href="chooseblock1.html">Book</a></li>
+                <li><a href="ProjectFacility.HTML">Facilities</a></li>
+                <li><a href="ProjectGallery.HTML" >Gallery</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="homepage.html">Logout</a></li>
+                <li><a href="ProjectProfile.html">Profile</a></li>
+              </ul>
+            </nav>
+            <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+              <ul class="mobile-menu">
+                <li><a href="userpage.html">Home</a></li>
+                <li><a href="chooseblock1.html">Book</a></li>
+                <li><a href="ProjectFacility.HTML">Facilities</a></li>
+                <li><a href="ProjectGallery.HTML" >Gallery</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="homepage.html">Logout</a></li>
+                <li><a href="ProjectProfile.html">Profile</a></li>
+              </ul>
+            </div>
+        </header>
+        <script>
+            function toggleMobileMenu(menu) {
+            menu.classList.toggle('open');
+            }
+        </script>
+    
+        <div class="row">
+            <div class="col">
+                <h1>My Profile</h1>
+                <img src="ProfilePicture.png" class="profilepicture">
+            </div>
+            <div class="col">
+                <br><h1>Ahmad Syafiq</h1>
+                <p>2221111  |  ACTIVE</p>
+
+                    <div class="row row1">
+                        <div class="name">Ahmad Syafiq bin Najib Razak</div><br>
+                    </div>
+                    <div class="row row2">
+                        <div class="matric">22211111</div><br>
+                    </div>
+                    <div class="row row3">
+                        <div class="phone">0136659174</div><br>
+                    </div>
+                    <div class="row row4">
+                        <div class="email">IbnuNajib09@gmail.com</div><br>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu(menu) {
+    menu.classList.toggle('open');
+}
+    </script>
+
+</body>
+</html>

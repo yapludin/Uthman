@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ProjectFacility.CSS">
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;600&display=swap' rel='stylesheet'>
+    <link rel="stylesheet" href="navbar-style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <header>
+            <div id="brand"><a href="home">Mahallah Uthman</a></div>
+            <nav>
+              <ul>
+                <li><a href="userpage.html">Home</a></li>
+                <li><a href="chooseblock1.html">Book</a></li>
+                <li><a href="ProjectFacility.HTML">Facilities</a></li>
+                <li><a href="ProjectGallery.HTML" >Gallery</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="homepage.html">Logout</a></li>
+                <li><a href="ProjectProfile.html">Profile</a></li>
+              </ul>
+            </nav>
+            <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+              <ul class="mobile-menu">
+                <li><a href="userpage.html">Home</a></li>
+                <li><a href="chooseblock1.html">Book</a></li>
+                <li><a href="ProjectFacility.HTML">Facilities</a></li>
+                <li><a href="ProjectGallery.HTML" >Gallery</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="homepage.html">Logout</a></li>
+                <li><a href="ProjectProfile.html">Profile</a></li>
+              </ul>
+            </div>
+        </header>
+        <script>
+            function toggleMobileMenu(menu) {
+            menu.classList.toggle('open');
+            }
+        </script>
+        <h1>Facilities</h1>
+        <p>We provide variety of amenities, for students to have the best experience with us !</p>
+        <div class="row">
+            <div class="col col1">
+                <a href="ProjectGallery.HTML" class="card card1">
+                    <h3>Room</h3>
+                </a>
+                <a href="Musolla.HTML" class="card card2">
+                    <h3>Musolla</h3>
+                </a>
+                <a href="Cafe.HTML" class="card card3">
+                    <h3>Cafe</h3>
+                </a>
+                <a href="Court.HTML" class="card card4">
+                    <h3>Futsal Court</h3>
+                </a>
+                <a href="Garden.HTML" class="card card5">
+                    <h3>Garden</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
