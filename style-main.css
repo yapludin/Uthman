@@ -1,0 +1,184 @@
+body{
+    background-color:#F4F3EA;
+    font-family: "Poppins";
+    margin-left: 10px;
+   }
+
+.container-blocks{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+ul 
+.chooseBlock img{
+    padding: 40px 0px 0px 300px;
+}
+.imgblocks{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.shopping-cart{
+    flex-direction: column;
+}
+
+h3, h2, h1, h4{
+    margin-left: 40px;
+}
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 40px;
+        padding-bottom: 10px;
+        justify-content: left;
+        flex-direction: row;
+    }
+    
+    .dropdown-group {
+        width: 30%;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    select {
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        font-family: 'Poppins';
+    }
+    
+    button{
+        background-color: #D3AC2A;
+        font-family: 'Poppins';
+        border-radius: 10px;
+        cursor: pointer;
+
+    }
+    .mybutton {
+        background-color: #D3AC2A;
+        width: 10%;
+        margin-top: 10px;
+        margin-left: 40px;
+        border-radius: 10px;
+        padding: 15px;
+        font-family: 'Poppins';
+        cursor: pointer;
+    }
+    .Proceed{
+        background-color: #D3AC2A;
+        width: 10%;
+        margin-top: 10px;
+        margin-left: 40px;
+        border-radius: 10px;
+        padding: 15px;
+        font-family: 'Poppins';
+        position: fixed;
+        bottom: 70px;
+        right: 70px;
+        cursor: pointer;
+    }
+
+    .additional-items-container{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .additional-item {
+        text-align: left;
+        margin-right: 10px;
+    }
+    
+    .additional-item img {
+        max-width: 200px;
+        max-height: 200px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+
+    .cart-toggle {
+        position: fixed;
+        right: 70px;
+        bottom: 140px;
+        cursor: pointer;
+    }
+    
+    .cart-toggle img {
+        width: 30px;
+    }
+    
+    
+    .shopping-cart {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100%;
+        background-color: #fff;
+        box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1; /* to ensure the cart is above other content */
+    }
+    
+    .shopping-cart.show-cart {
+        transform: translateX(0);
+    }
+    
+    .close-cart {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    /* sm */
+@media (max-width: 640px) {
+    .gambaruthman img{
+        max-width: 200px;
+    }
+    .uthmanblocks ul{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .mybutton {
+        background-color: #D3AC2A;
+        width: 20%;
+        margin-top: 10px;
+        margin-left: 40px;
+        border-radius: 10px;
+        padding: 15px;
+        font-family: 'Poppins';
+        cursor: pointer;
+    }
+    .Proceed{
+        background-color: #D3AC2A;
+        width: 20%;
+        margin-top: 10px;
+        margin-left: 40px;
+        border-radius: 10px;
+        padding: 15px;
+        font-family: 'Poppins';
+        position: fixed;
+        bottom: 70px;
+        right: 70px;
+        cursor: pointer;
+    }
+    .dropdown-group {
+        width: 20%;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+
+}

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>choose block page 2</title>
+    <link rel="stylesheet" href="style-main.css">
+    <link rel="stylesheet" href="navbar-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="brand"><a href="home">Mahallah Uthman</a></div>
+        <nav>
+          <ul>
+            <li><a href="userpage.html">Home</a></li>
+            <li><a href="chooseblock1.html">Book</a></li>
+            <li><a href="ProjectFacility.html">Facilities</a></li>
+            <li><a href="ProjectGallery.html" >Gallery</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="homepage.html">Logout</a></li>
+            <li><a href="ProjectProfile.html">Profile</a></li>
+          </ul>
+        </nav>
+        <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+          <ul class="mobile-menu">
+            <li><a href="userpage.html">Home</a></li>
+            <li><a href="chooseblock1.html">Book</a></li>
+            <li><a href="ProjectFacility.html">Facilities</a></li>
+            <li><a href="ProjectGallery.html" >Gallery</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="homepage.html">Logout</a></li>
+            <li><a href="ProjectProfile.html">Profile</a></li>
+          </ul>
+        </div>
+        
+      </header>
+    
+    <main>
+        <h1 id="pageTitle">Block</h1>
+        <form id="roomForm">
+            <div class="dropdown-group">
+                <label for="roomType">Room Type:</label>
+                <select id="roomType" name="roomType" onchange="populateRoomNumbersAndCompartments()" required>
+                    <option value="quadroom">Quad Room (RM100)</option>
+                    <option value="twinroom">Twin Room (RM200)</option>
+                    <option value="singleroom">Single Room (RM300)</option>
+                </select>
+            </div>
+
+            <div class="dropdown-group">
+                <label for="roomNumber">Room Number:</label>
+                <select id="roomNumber" name="roomNumber" required> </select>
+            </div>
+
+            <div class="dropdown-group">
+                <label for="compartment">Compartment:</label>
+                <select id="compartment" name="compartment" required></select>
+            </div>
+
+            
+        </form>
+        <button class="mybutton" type="button" onclick="addToCart()">Add to Cart</button>
+
+        <h2>Add-on</h2>
+        <div class="additional-items-container">
+            <form id="addOnForms">
+                        <div class="additional-item">
+                            <img src="broom.jpg" alt="Broom">
+                            <label>
+                                <input type="checkbox" name="broom" value="broom">
+                                Broom (RM 10)
+                            </label>
+                        </div>
+            
+                        <div class="additional-item">
+                            <img src="bedsheet.jpg" alt="Bedsheet">
+                            <label>
+                                <input type="checkbox" name="bedsheet" value="bedsheet">
+                                Bedsheet (RM 10)
+                            </label>
+                        </div>
+            <div class="additional-item">
+                            <img src="pillow.jpeg" alt="Pillow">
+                            <label>
+                                <input type="checkbox" name="pillow" value="pillow">
+                                Pillow (RM 10)
+                            </label>
+                        </div>
+            <div class="additional-item">
+                            <img src="tikar.png" alt="Tikar">
+                            <label>
+                                <input type="checkbox" name="tikar" value="tikar">
+                                Tikar (RM 10)
+                            </label>
+                        
+                    </form>
+                </div>
+                    
+                    <button class="mybutton" type="button" onclick="addAdditionalItems()">Add to Cart</button>
+
+
+        <hr>
+
+        <div class="cart-toggle" onclick="toggleCart()">
+            <img src="shopping-cart.png" alt="">
+        </div>
+    
+        <!-- Shopping Cart -->
+        <div id="shoppingCart" class="shopping-cart">
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+            <h2>Shopping Cart</h2>
+            <ul id="cartItems"></ul>
+            <p>Total Price: <span id="totalPrice">RM 0</span></p>
+            
+        </div>
+        <button class="Proceed" type="button" onclick="checkRoom()">Proceed to Book</button>
+
+        
+    </main>
+
+    <script>
+        //Make block choose from previous page as title
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedBlock = urlParams.get('block');
+        if (selectedBlock) {
+            document.getElementById('pageTitle').textContent += ` - ${selectedBlock}`;
+        }
+
+        const roomPrices = {
+            quadroom: 100,
+            twinroom: 200,
+            singleroom: 300,
+            bedsheet: 10,
+            broom: 10,
+            pillow: 10,
+            tikar: 10
+        };
+
+        let hasRoomInCart = false; // Flag to track if theres a room already in the cart
+
+        function populateRoomNumbersAndCompartments() {
+            const roomType = document.getElementById('roomType').value;
+            const roomNumberSelect = document.getElementById('roomNumber');
+            const compartmentSelect = document.getElementById('compartment');
+
+            roomNumberSelect.innerHTML = '';
+            compartmentSelect.innerHTML = '';
+
+            let roomNumbers = [];
+            let compartments = [];
+
+            switch (roomType) {
+                case 'quadroom':
+                    for (let floor = 1; floor <= 4; floor++) {
+                        for (let room = 1; room <= 10; room++) {
+                            if (!((room === 9 || room === 10) && (floor === 1 || floor === 2 || floor === 3 || floor === 4))) {
+                                roomNumbers.push(`${floor}.${room}`);
+                            }
+                        }
+                    }
+                    compartments = ['A', 'B', 'C', 'D'];
+                    break;
+                case 'twinroom':
+                    roomNumbers = ['1.9', '1.10', '2.9', '2.10', '3.9', '3.10', '4.9', '4.10'];
+                    compartments = ['A', 'B'];
+                    break;
+                case 'singleroom':
+                    for (let floor = 1; floor <= 4; floor++) {
+                        for (let room = 1; room <= 10; room++) {
+                            roomNumbers.push(`${floor}.${room}`);
+                        }
+                    }
+                    compartments = ['A', 'B', 'C', 'D'];
+                    break;
+                default:
+                    roomNumbers = [];
+                    break;
+            }
+
+            roomNumbers.forEach(number => {
+                const option = document.createElement('option');
+                option.value = number;
+                option.textContent = `Room ${number}`;
+                roomNumberSelect.appendChild(option);
+            });
+
+            compartments.forEach(compartment => {
+                const option = document.createElement('option');
+                option.value = compartment;
+                option.textContent = `Compartment ${compartment}`;
+                compartmentSelect.appendChild(option);
+            });
+        }
+        
+
+        // Add booked room to the cart
+        function addToCart() {
+            if (hasRoomInCart) {
+                alert('You can only book one room per person.');
+                return;
+            }
+
+            const roomType = document.getElementById('roomType').value;
+            const roomNumber = document.getElementById('roomNumber').value;
+            const compartment = document.getElementById('compartment').value;
+
+            const cartItems = document.getElementById('cartItems');
+
+            //List item for the cart
+            const cartItem = document.createElement('li');
+            cartItem.textContent = `${roomType} - Room ${roomNumber} - Compartment ${compartment} (RM ${roomPrices[roomType]})`;
+
+            //REmove button
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remove';
+            removeButton.onclick = function () {
+                cartItems.removeChild(cartItem);
+                updateTotalPrice();
+                hasRoomInCart = false; // Reset the flag if the room is removed from the cart
+            };
+            cartItem.appendChild(removeButton);
+
+            // Add cart items to the cart
+            cartItems.appendChild(cartItem);
+
+            hasRoomInCart = true; // Set the flag indicating that a room is in the cart
+
+            updateTotalPrice();
+        }
+
+        // Add selected items to the cart
+        function addAdditionalItems() {
+            const additionalItemsForm = document.getElementById('addOnForms');
+            const selectedItems = Array.from(addOnForms.querySelectorAll('input[type="checkbox"]:checked'));
+
+            const cartItems = document.getElementById('cartItems');
+
+            
+            selectedItems.forEach(item => {
+                const itemName = item.name;
+                const itemPrice = roomPrices[itemName];
+
+                // Create a new list item for the cart
+                const cartItem = document.createElement('li');
+                cartItem.textContent = `${itemName} (RM ${itemPrice})`;
+
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.onclick = function () {
+                    cartItems.removeChild(cartItem);
+                    updateTotalPrice();
+                };
+                cartItem.appendChild(removeButton);
+
+                // Add the cart item to the cart
+                cartItems.appendChild(cartItem);
+            });
+
+            updateTotalPrice();
+        }
+        function toggleCart() {
+            const cart = document.getElementById('shoppingCart');
+            cart.classList.toggle('show-cart');
+        }
+
+        // Total price
+        function updateTotalPrice() {
+    const cartItems = document.getElementById('cartItems');
+    const totalPriceElement = document.getElementById('totalPrice');
+    let totalPrice = 0;
+
+    cartItems.querySelectorAll('li').forEach(item => {
+        const itemNameMatch = item.textContent.match(/([a-zA-Z]+) \((RM \d+)\)/);
+        if (itemNameMatch) {
+            const itemName = itemNameMatch[1].toLowerCase();
+            const itemPrice = parseFloat(itemNameMatch[2].replace('RM ', ''));
+            totalPrice += itemPrice;
+        }
+    });
+
+    totalPriceElement.textContent = `RM ${totalPrice}`;
+}
+
+        // Check if there is at least one room booked
+function checkRoom() { 
+        const cartItems = document.getElementById('cartItems').children;
+
+        let roomBooked = false;
+        for (let i = 0; i < cartItems.length; i++) {
+            const itemNameMatch = cartItems[i].textContent.match(/([a-zA-Z]+) - Room/);
+            if (itemNameMatch && (itemNameMatch[1].toLowerCase() === 'quadroom' || itemNameMatch[1].toLowerCase() === 'twinroom' || itemNameMatch[1].toLowerCase() === 'singleroom')) {
+                roomBooked = true;
+                break;
+            }
+        }
+
+        const selectedRoomType = document.getElementById('roomType').value;
+            const selectedRoomNumber = document.getElementById('roomNumber').value;
+            const selectedCompartment = document.getElementById('compartment').value;
+
+            // Create an object with the selected room details (for receipt)
+            const roomDetails = {
+                roomType: selectedRoomType,
+                roomNumber: selectedRoomNumber,
+                compartment: selectedCompartment
+            };
+
+            // Load existing room details from localStorage
+            const existingRoomDetails = JSON.parse(localStorage.getItem('roomDetails')) || [];
+
+            // Add the new room details to the array
+            existingRoomDetails.push(roomDetails);
+
+            // Save the updated array back to localStorage
+            localStorage.setItem('roomDetails', JSON.stringify(existingRoomDetails));
+        
+
+        // Proceed to next page only if a room is booked
+        if (roomBooked) {
+            window.location.href = 'chooseblock3.html';
+        } else {
+            alert('Please book a room before proceeding.');
+        }
+    }
+
+
+
+        // Populate room numbers and compartments when room type changes
+        document.getElementById('roomType').addEventListener('change', populateRoomNumbersAndCompartments);
+
+        // Initial population of room numbers and compartments
+        populateRoomNumbersAndCompartments();
+
+        function toggleMobileMenu(menu) {
+    menu.classList.toggle('open');
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPX Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Poppins;
+        }
+
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh; 
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 20px; 
+        }
+
+        .confirmation-header {
+            background-color: #6666; 
+            border: 2px solid black; 
+            padding: 10px; 
+            text-align: center; 
+            width: 40%; 
+            margin-bottom: 0px; 
+            margin-top: 150px;
+        }
+
+        .confirmation-header h1 {
+            color: black; 
+            margin: 0; 
+            font-size: 1.3em; 
+            margin-bottom: auto;
+        }
+
+        .login-details {
+            background-color: white;
+            border: 1px solid black;
+            padding: 20px; 
+            width: 38.65%; 
+            text-align: justify; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            position: relative; 
+        }
+
+        .login-details img {
+            width: 180px; 
+            height: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-form input {
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .login-form button {
+        background-color: rgb(46, 132, 253);
+        border: 0.5px solid black;
+        padding: 10px 20px;
+        width: 70%;
+        color: black;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+        border-radius: 10px; 
+        }
+
+        .loading-box {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            width: 40.5%;
+            background-color: rgba(0, 0, 0, 0.8); 
+            border: 2px solid black; 
+            color: white; 
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            z-index: 9999;
+            text-align: center;
+            margin-bottom: 192px;
+        }
+
+        .loading-text {
+            margin-bottom: 10px;
+        }
+
+        .loading-bar {
+            width: 0%;
+            height: 5px;
+            background-color: #D3AC2A;
+            animation: loading 3s linear forwards;
+        }
+
+        @keyframes loading {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            z-index: 9999;
+            text-align: center;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="page-container">
+        <header class="confirmation-header">
+            <h1>FPX</h1>
+        </header>
+
+        <div class="login-details">
+            <img src="bank.png" alt="bank" />
+            <form class="login-form" id="loginForm">
+                <input type="text" id="usernameInput" placeholder="Username" />
+                <input type="password" id="passwordInput" placeholder="Password" />
+                <button id="confirmButton">Confirm</button>
+            </form>
+        </div>
+
+        <div class="loading-box" id="loadingBox">
+            <div class="loading-text">Loading...</div>
+            <div class="loading-bar"></div>
+        </div>
+
+        <div class="modal" id="modalBox">
+            <p>Payment Complete!.</p>
+            <p>Thank You.</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+         $(document).ready(function() {
+            $('#confirmButton').click(function(event) {
+                event.preventDefault();
+
+                if ($('#usernameInput').val() !== '' && $('#passwordInput').val() !== '') {
+                    $('.loading-box').fadeIn(500);
+
+                    setTimeout(function() {
+                        $('.loading-box').fadeOut(500);
+                        $('#modalBox').fadeIn(500);
+
+                        setTimeout(function() {
+                            $('#modalBox').fadeOut(500);
+
+                            window.location.href = 'mahallahreceipt.html';
+                        }, 3000);
+                    }, 3000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
