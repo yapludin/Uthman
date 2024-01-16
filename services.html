@@ -129,27 +129,23 @@ function closeServicesPopup() {
 document.getElementById('servicesForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
-    // Add your form submission logic here
     const serviceType = document.getElementById('serviceType').value;
     const userName = document.getElementById('userName').value;
     const userEmail = document.getElementById('userEmail').value;
     const userFile = document.getElementById('userFile').files[0];
 
-    // Display or process the collected information as needed
+    // Display user's input
     alert(`Service: ${serviceType}\nName: ${userName}\nEmail: ${userEmail}`);
 
     if (userFile) {
         alert(`Uploaded File: ${userFile.name}`);
         alert('Your reservation has been submitted successfully! Please wait for further notification.');
-        // You can perform additional actions with the uploaded file, such as sending it to a server
     }
     else{
         alert('No file is submitted.');
         alert('Your reservation has been submitted successfully! Please wait for further notification.');
     }
     
-
-    // Close the popup after form submission
     closeServicesPopup();
 });
 
