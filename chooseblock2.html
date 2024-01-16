@@ -53,16 +53,12 @@
 
             <div class="dropdown-group">
                 <label for="roomNumber">Room Number:</label>
-                <select id="roomNumber" name="roomNumber" required>
-                    <!-- Room numbers will be dynamically populated based on room type -->
-                </select>
+                <select id="roomNumber" name="roomNumber" required> </select>
             </div>
 
             <div class="dropdown-group">
                 <label for="compartment">Compartment:</label>
-                <select id="compartment" name="compartment" required>
-                    <!-- Compartments will be dynamically populated based on room type -->
-                </select>
+                <select id="compartment" name="compartment" required></select>
             </div>
 
             
@@ -84,21 +80,21 @@
                             <img src="bedsheet.jpg" alt="Bedsheet">
                             <label>
                                 <input type="checkbox" name="bedsheet" value="bedsheet">
-                                Bedsheet (RM 20)
+                                Bedsheet (RM 10)
                             </label>
                         </div>
             <div class="additional-item">
                             <img src="pillow.jpeg" alt="Pillow">
                             <label>
                                 <input type="checkbox" name="pillow" value="pillow">
-                                Pillow (RM 20)
+                                Pillow (RM 10)
                             </label>
                         </div>
             <div class="additional-item">
                             <img src="tikar.png" alt="Tikar">
                             <label>
                                 <input type="checkbox" name="tikar" value="tikar">
-                                Tikar (RM 20)
+                                Tikar (RM 10)
                             </label>
                         
                     </form>
@@ -127,7 +123,7 @@
     </main>
 
     <script>
-        // Extract block information from the URL and set it as the page title
+        //Make block choose from previous page as title
         const urlParams = new URLSearchParams(window.location.search);
         const selectedBlock = urlParams.get('block');
         if (selectedBlock) {
@@ -142,10 +138,9 @@
             broom: 10,
             pillow: 10,
             tikar: 10
-            // Add more items with their prices as needed
         };
 
-        let hasRoomInCart = false; // Flag to track whether a room is already in the cart
+        let hasRoomInCart = false; // Flag to track if theres a room already in the cart
 
         function populateRoomNumbersAndCompartments() {
             const roomType = document.getElementById('roomType').value;
@@ -202,6 +197,7 @@
         }
         
 
+        // Add booked room to the cart
         function addToCart() {
             if (hasRoomInCart) {
                 alert('You can only book one room per person.');
@@ -214,21 +210,21 @@
 
             const cartItems = document.getElementById('cartItems');
 
-            // Create a new list item for the cart
+            //List item for the cart
             const cartItem = document.createElement('li');
             cartItem.textContent = `${roomType} - Room ${roomNumber} - Compartment ${compartment} (RM ${roomPrices[roomType]})`;
 
-            // Add a remove button to the cart item
+            //REmove button
             const removeButton = document.createElement('button');
             removeButton.textContent = 'Remove';
             removeButton.onclick = function () {
                 cartItems.removeChild(cartItem);
                 updateTotalPrice();
-                hasRoomInCart = false; // Reset the flag when the room is removed from the cart
+                hasRoomInCart = false; // Reset the flag if the room is removed from the cart
             };
             cartItem.appendChild(removeButton);
 
-            // Add the cart item to the cart
+            // Add cart items to the cart
             cartItems.appendChild(cartItem);
 
             hasRoomInCart = true; // Set the flag indicating that a room is in the cart
@@ -236,13 +232,14 @@
             updateTotalPrice();
         }
 
+        // Add selected items to the cart
         function addAdditionalItems() {
             const additionalItemsForm = document.getElementById('addOnForms');
             const selectedItems = Array.from(addOnForms.querySelectorAll('input[type="checkbox"]:checked'));
 
             const cartItems = document.getElementById('cartItems');
 
-            // Add each selected item to the cart
+            
             selectedItems.forEach(item => {
                 const itemName = item.name;
                 const itemPrice = roomPrices[itemName];
@@ -251,7 +248,6 @@
                 const cartItem = document.createElement('li');
                 cartItem.textContent = `${itemName} (RM ${itemPrice})`;
 
-                // Add a remove button to the cart item
                 const removeButton = document.createElement('button');
                 removeButton.textContent = 'Remove';
                 removeButton.onclick = function () {
@@ -271,12 +267,12 @@
             cart.classList.toggle('show-cart');
         }
 
+        // Total price
         function updateTotalPrice() {
     const cartItems = document.getElementById('cartItems');
     const totalPriceElement = document.getElementById('totalPrice');
     let totalPrice = 0;
 
-    // Calculate total price based on room prices and additional items
     cartItems.querySelectorAll('li').forEach(item => {
         const itemNameMatch = item.textContent.match(/([a-zA-Z]+) \((RM \d+)\)/);
         if (itemNameMatch) {
@@ -288,10 +284,11 @@
 
     totalPriceElement.textContent = `RM ${totalPrice}`;
 }
-function checkRoom() {
-        const cartItems = document.getElementById('cartItems').children;
 
         // Check if there is at least one room booked
+function checkRoom() { 
+        const cartItems = document.getElementById('cartItems').children;
+
         let roomBooked = false;
         for (let i = 0; i < cartItems.length; i++) {
             const itemNameMatch = cartItems[i].textContent.match(/([a-zA-Z]+) - Room/);
@@ -305,7 +302,7 @@ function checkRoom() {
             const selectedRoomNumber = document.getElementById('roomNumber').value;
             const selectedCompartment = document.getElementById('compartment').value;
 
-            // Create an object with the selected room details
+            // Create an object with the selected room details (for receipt)
             const roomDetails = {
                 roomType: selectedRoomType,
                 roomNumber: selectedRoomNumber,
@@ -325,7 +322,6 @@ function checkRoom() {
         // Proceed to next page only if a room is booked
         if (roomBooked) {
             window.location.href = 'chooseblock3.html';
-            // Add code to navigate to the next page here
         } else {
             alert('Please book a room before proceeding.');
         }
