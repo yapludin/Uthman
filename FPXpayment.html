@@ -2,73 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="mowla-icon" href="logomowlasebenar.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FPX Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <style>
-        body, h1, h2, p {
+        body{
             margin: 0;
             padding: 0;
-        }
-
-        html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('BankingBG.jpg'); /* Replace 'MOWLA Image.jpg' with the correct path to your image */
-            background-size: cover;
-            background-position: center;
             font-family: Poppins;
-            background-attachment: fixed; /* Fixed background while scrolling */
         }
 
-        /* Style for the entire page */
         .page-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            min-height: 100vh; /* 100% of the viewport height */
-            background-color: rgba(255, 255, 255, 0.8); /* Fallback background color for the container */
-            padding: 20px; /* Adding some padding for space */
+            min-height: 100vh; 
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 20px; 
         }
 
         .confirmation-header {
-            background-color: #6666; /* Grey background color */
-            border: 2px solid black; /* Black border */
-            padding: 10px; /* Padding around the text */
-            text-align: center; /* Center-align header content */
-            width: 40%; /* Width of the header box */
-            margin-bottom: 0px; /* Margin at the bottom for spacing */
+            background-color: #6666; 
+            border: 2px solid black; 
+            padding: 10px; 
+            text-align: center; 
+            width: 40%; 
+            margin-bottom: 0px; 
             margin-top: 150px;
         }
 
-        /* Style for the header title */
         .confirmation-header h1 {
-            color: black; /* Text color */
-            margin: 0; /* Remove default margin */
-            font-size: 1.3em; /* Adjust font size */
+            color: black; 
+            margin: 0; 
+            font-size: 1.3em; 
             margin-bottom: auto;
         }
 
         .login-details {
-            background-color: white; /* White background for the details */
-            border: 1px solid black; /* Black border */
-            padding: 20px; /* Padding for the details */
-            width: 38.65%; /* Width of the details box */
-            text-align: justify; /* Left-align text */
-            display: flex; /* Use flexbox for layout */
-            flex-direction: column; /* Stack items vertically */
-            align-items: center; /* Center-align items horizontally */
-            justify-content: center; /* Center-align items vertically */
-            position: relative; /* Position the image */
+            background-color: white;
+            border: 1px solid black;
+            padding: 20px; 
+            width: 38.65%; 
+            text-align: justify; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            position: relative; 
         }
 
         .login-details img {
-            width: 180px; /* Adjust the image size */
+            width: 180px; 
             height: auto;
             margin-top: 20px;
             margin-bottom: 20px;
@@ -97,7 +83,7 @@
         font-size: 16px;
         cursor: pointer;
         margin-top: 10px;
-        border-radius: 10px; /* Rounded corners */
+        border-radius: 10px; 
         }
 
         .loading-box {
@@ -105,9 +91,9 @@
             position: fixed;
             bottom: 0;
             width: 40.5%;
-            background-color: rgba(0, 0, 0, 0.8); /* Background color */
-            border: 2px solid black; /* Border */
-            color: white; /* Text color */
+            background-color: rgba(0, 0, 0, 0.8); 
+            border: 2px solid black; 
+            color: white; 
             text-align: center;
             padding: 10px;
             box-sizing: border-box;
@@ -146,6 +132,7 @@
             text-align: center;
         }
     </style>
+    
 </head>
 <body>
     <div class="page-container">
